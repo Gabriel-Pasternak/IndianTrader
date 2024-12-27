@@ -3,6 +3,7 @@ import pandas as pd
 from typing import List, Dict, Any
 from .price_targets import PriceTargetService
 from .ml_service import MLService
+from .utils.validation import validate_data_length
 
 class StockService:
     def __init__(self):
@@ -25,6 +26,7 @@ class StockService:
         try:
             # Get stock data
             df = self.get_stock_data(ticker)
+            validate_data_length(len(df))
             
             # Get ML predictions
             predictions = self.ml_service.get_predictions(df)
