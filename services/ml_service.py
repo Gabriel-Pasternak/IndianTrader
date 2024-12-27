@@ -6,7 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from typing import Dict, Any, List
 from .data_preparation import prepare_data
-from .models.lstm_model import create_lstm_model, prepare_lstm_data
+from .models import create_lstm_model, prepare_lstm_data
 from .utils.validation import validate_data_length
 
 class MLService:
