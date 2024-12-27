@@ -1,6 +1,7 @@
+"""Data preparation utilities for ML models"""
 import pandas as pd
 import numpy as np
-from typing import Tuple, List
+from typing import Tuple
 
 def calculate_rsi(prices: pd.Series, period: int = 14) -> pd.Series:
     """Calculate Relative Strength Index"""
