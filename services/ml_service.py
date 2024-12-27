@@ -1,5 +1,5 @@
+"""Machine learning service for stock analysis"""
 import numpy as np
-import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
@@ -18,7 +18,7 @@ class MLService:
         }
         self.scaler = StandardScaler()
 
-    def get_predictions(self, df: pd.DataFrame) -> Dict[str, float]:
+    def get_predictions(self, df) -> Dict[str, float]:
         """Get predictions from all models"""
         try:
             validate_data_length(len(df))
@@ -53,7 +53,7 @@ class MLService:
         except Exception as e:
             raise Exception(f"Error getting predictions: {str(e)}")
 
-    def get_ml_price_targets(self, df: pd.DataFrame) -> List[Dict[str, Any]]:
+    def get_ml_price_targets(self, df) -> List[Dict[str, Any]]:
         """Generate price targets using ML models"""
         try:
             current_price = df['Close'].iloc[-1]
